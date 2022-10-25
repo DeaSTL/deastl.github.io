@@ -3,6 +3,13 @@ var mouseY = 0
 var mouseButton = false;
 var canvas;
 var ctx;
+function getMousePos(canvas, evt) {
+  var rect = canvas.getBoundingClientRect();
+  return {
+    x: evt.clientX - rect.left,
+    y: evt.clientY - rect.top
+  };
+}
 function draw() {
     canvas= document.getElementById("canvas");
     if (canvas.getContext) {
@@ -22,12 +29,9 @@ document.onmouseup = () => {
 	mouseButton = false
 }
 document.onmousemove = (event) => {
-  const {
-    clientX,
-    clientY
-  } = event
-  mouseX = clientX;
-  mouseY = clientY;
+
+  mouseX = getMousePos(canvas,event).x;
+  mouseY = getMousePos(canvas,event).y;
   if(mouseButton){
   	ctx.lineTo(mouseX, mouseY);
   	ctx.stroke();
