@@ -15,14 +15,14 @@ function draw() {
     if (canvas.getContext) {
       ctx = canvas.getContext("2d");
       ctx.fillStyle = "rgba(20, 20, 20)";
-      ctx.fillRect(0, 0, 3000, 3000);
+      ctx.fillRect(0, 0, 5000, 5000);
     }
   }
 document.onmousedown = () => {
 	mouseButton = true
 	ctx.beginPath();
 	ctx.strokeStyle = 'green';
-	ctx.lineWidth = 15;
+	ctx.lineWidth = 8;
 	console.log("down")
 }
 document.onmouseup = () => {
